@@ -6,15 +6,11 @@ vector<string> split_string(string);
 
 // Complete the rotLeft function below.
 vector<int> rotLeft(vector<int> a, int d) {
-    int tmp;
-    for(int i=0;i<d;i++){
-        for(int j=0;j<a.size()-1;j++){
-            tmp=a[j];
-            a[j]=a[j+1];
-            a[j+1]=tmp;
-        }
+    vector<int> tmp(a.size());
+    for(int i=0;i<a.size();i++){
+        tmp[i] = a[(i+d)%a.size()];
     }
-    return a;
+    return tmp;
 }
 
 int main()
